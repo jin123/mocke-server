@@ -9,8 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-
-	"https://github.com/jin123/src/logger"
+	"github.com/jin123/mocke-server/src/logger"
 )
 
 const (
