@@ -1,4 +1,4 @@
-module github.com/tkc/go-json-server
+module github.com/jin123/mocke-server
 
 go 1.13
 
