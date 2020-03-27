@@ -1,0 +1,30 @@
+{
+  "url":"http://127.0.0.1:10000/passport/user/v5/cell2Uid",
+  "content_type":null,
+  "http_code":200,
+  "header_size":19,
+  "request_size":472,
+  "filetime":-1,
+  "ssl_verify_result":0,
+  "redirect_count":0,
+  "total_time":0.000455,
+  "namelookup_time":0.000018,
+  "connect_time":0.000112,
+  "pretransfer_time":0.000142,
+  "size_upload":197,
+  "size_download":0,
+  "speed_download":0,
+  "speed_upload":432967,
+  "download_content_length":-1,
+  "upload_content_length":197,
+  "starttransfer_time":0.000451,
+  "redirect_time":0,
+  "redirect_url":"",
+  "primary_ip":"127.0.0.1",
+  "certinfo":[
+
+  ],
+  "primary_port":10000,
+  "local_ip":"127.0.0.1",
+  "local_port":44058
+}

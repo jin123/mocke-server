@@ -1,0 +1,29 @@
+{
+  "port":4000,
+  "endpoints":[
+      {
+          "method":"GET",
+          "status":200,
+          "path":"/",
+          "jsonPath":"./health-check.json"
+      },
+      {
+          "method":"GET",
+          "status":200,
+          "path":"/users",
+          "jsonPath":"./users.json"
+      },
+      {
+          "method":"GET",
+          "status":200,
+          "path":"/user/1",
+          "jsonPath":"./user.json"
+      },
+      {
+          "method":"POST",
+          "status":200,
+          "path":"/userInfo/1",
+          "jsonPath":"./userInfo.json"
+      }
+  ]
+}
