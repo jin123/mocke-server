@@ -1,6 +1,6 @@
 {
   "port":4000,
-  "endpoints":[
+  "endpoints":[  
       {
           "method":"GET",
           "status":200,
@@ -8,22 +8,17 @@
           "jsonPath":"./health-check.json"
       },
       {
-          "method":"GET",
+          "method":"POST",
           "status":200,
-          "path":"/users",
-          "jsonPath":"./users.json"
-      },
-      {
-          "method":"GET",
-          "status":200,
-          "path":"/user/1",
-          "jsonPath":"./user.json"
+          "path":"/product/GetAllHotel/index",
+          "jsonPath":"./json/getallhotel.json"
       },
       {
           "method":"POST",
           "status":200,
-          "path":"/userInfo/1",
-          "jsonPath":"./userInfo.json"
+          "path":"/product/GetHotelsDetail/index",
+         // "jsonPath":"./json/getallhotel.json"
       }
+
   ]
 }
