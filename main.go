@@ -9,14 +9,16 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"reflect"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/go-redis/redis"
 	"github.com/jin123/mocke-server/src/logger"
-	"github.com/jin123/mocke-server/src/myapi"
 )
+
+var methodMap map[string]string
 
 const (
 	charsetUTF8 = "charset=UTF-8"
@@ -93,12 +95,19 @@ type Endpoint struct {
 	JsonPath string `json:"jsonPath"`
 	Folder   string `json:"folder"`
 }
+type ApiResult struct {
+	Errno  int           `json:"errno"`
+	Errmsg string        `json:"errmsg"`
+	Data   []interface{} `json:"data"`
+}
 
 type API struct {
 	Host      string     `json:"host"`
 	Port      int        `json:"port"`
 	Endpoints []Endpoint `json:"endpoints"`
 }
+
+var apiRes ApiResult
 
 var api API
 
@@ -107,7 +116,74 @@ func err_handler(err error) {
 	panic(err.Error())
 }
 
+type myconnector struct {
+}
+
+func (my *myconnector) getMethod() {
+
+	methodMap = map[string]string{
+		"productGetHotelsDetailindex":           "GetHotelsDetail",
+		"productGetAllHotelindex":               "GetAllHotel",
+		"productDoubleCheckbeforeCheckRoomType": "DoubleCheckBeforeCheckRoomType",
+		"productGetRoomPriceOneHotelindex":      "GetRoomPriceOneHotel",
+	}
+}
+func (my *myconnector) GetHotelsDetail(r *http.Request, jsonStr string) string {
+	return jsonStr
+}
+
+func (my *myconnector) DoubleCheckBeforeCheckRoomType(r *http.Request, jsonStr string) string {
+	return jsonStr
+}
+
+func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) string {
+
+	dates := GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time"))
+	responseData := make([]interface{}, len(dates))
+	//yourMap := []interface{}
+	//fmt.Println("jsonStr=", jsonStr)
+	err := json.Unmarshal([]byte(jsonStr), &apiRes)
+	if err != nil {
+		fmt.Println("JsonToMapDemo err: ", err)
+	}
+
+	//fmt.Println("errno=", apiRes.Errno, "errormsg=", apiRes.Errmsg, "data=", apiRes.Data)
+	apiData := apiRes.Data
+	template := apiData[0]
+	fmt.Println("type template=", reflect.TypeOf(template))
+	for i, n := range dates {
+		template.(map[string]interface{})["biz_date"] = n
+		responseData[i] = template
+		//responseData = append(responseData, template)
+	}
+	//fmt.Println("type apiData=", reflect.TypeOf(apiData))
+	//fmt.Println("apiData=", apiData)
+	//fmt.Println("responseData=", responseData)
+	//apiRes.Data = yourMap
+
+	/*newResponse, err := json.Marshal(apiRes)
+	if err != nil {
+		fmt.Println("生成json字符串错误")
+	}
+	fmt.Println(newResponse)*/
+	//fmt.Println("yourMap=", yourMap)
+	//var newData map[string]interface{}
+
+	//fmt.Println("biz date=", newData["biz_date"])
+
+	//fmt.Println("mapResult=", mapResult)
+	//fmt.Println("data type=", reflect.TypeOf(apiRes.Data))
+
+	return jsonStr
+}
+
+//返回所有酒店id集合数据暂时不动
+func (my *myconnector) GetAllHotel(r *http.Request, jsonStr1 string) string {
+	return jsonStr1
+
+}
 func main() {
+
 	//init_redis()
 	raw, err := ioutil.ReadFile("./api.json")
 	if err != nil {
@@ -139,17 +215,26 @@ func main() {
 
 }
 
+//动态调用结构体的方法
+func DynamicInvoke(object interface{}, methodName string, args ...interface{}) string {
+	inputs := make([]reflect.Value, len(args))
+	for i, _ := range args {
+		inputs[i] = reflect.ValueOf(args[i])
+	}
+	r := reflect.ValueOf(object).MethodByName(methodName).Call(inputs)
+	value := r[0]
+	v2 := value.Interface().(string)
+	return v2
+}
 func response(w http.ResponseWriter, r *http.Request) {
 
 	appLogger := logger.CreateLogger()
 	fmt.Println("请求的参数")
 	//defer r.Body.Close()
-	fmt.Println(r.PostFormValue("start_time"))
-	fmt.Println(r.PostFormValue("end_time"))
-	fmt.Println(GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time")))
-	//con, _ := ioutil.ReadAll(r.Body) //获取post的数据
-	//fmt.Println("----------------")
-	//fmt.Println(string(con))
+	//fmt.Println(r.PostFormValue("start_time"))
+	//fmt.Println(r.PostFormValue("end_time"))
+	//fmt.Println(GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time")))
+
 	r.ParseForm()
 	appLogger.AccessLog(r)
 
@@ -162,10 +247,22 @@ func response(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == ep.Path && r.Method == ep.Method {
 			fmt.Println("method:", r.Method)
 			fmt.Println("path:", r.URL.Path)
+
+			myc := new(myconnector)
+			myc.getMethod()
+			requestMethod := strings.Replace(r.URL.Path, "/", "", -1)
+			//fmt.Println("output222")
+			apiFunc := methodMap[requestMethod]
+			fmt.Println("调用结构体的方法")
+
 			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
 			w.WriteHeader(ep.Status)
 			s := path2Response(ep.JsonPath)
-			b := []byte(s)
+
+			apiData := DynamicInvoke(myc, apiFunc, r, s)
+
+			b := []byte(apiData)
+
 			w.Write(b)
 		}
 		continue
@@ -173,11 +270,8 @@ func response(w http.ResponseWriter, r *http.Request) {
 }
 
 func path2Response(path string) string {
-	apiFunc := strings.Replace(path, "/", "", -1)
-	fmt.Println(api)
 
-	myApi := myApi{}
-	myApi.apiFunc()
+	//myapi.$apiFunc()
 	file, err := os.Open(path)
 	if err != nil {
 		log.Print(err)

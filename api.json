@@ -17,8 +17,22 @@
           "method":"POST",
           "status":200,
           "path":"/product/GetHotelsDetail/index",
-         // "jsonPath":"./json/getallhotel.json"
-      }
-
+          "jsonPath":"./json/getHotelsDetail.json"
+      },
+      {
+        "method":"POST",
+        "status":200,
+        "path":"/product/DoubleCheck/beforeCheckRoomType",
+        "jsonPath":"./json/doubleCheckBeforeCheckRoomType.json"
+    },
+    {
+        "method":"POST",
+        "status":200,
+        "path":"/product/GetRoomPriceOneHotel/index",
+        "jsonPath":"./json/getRoomPriceOneHotel.json"
+    }
+    
+    
+      
   ]
 }
