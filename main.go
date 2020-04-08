@@ -140,8 +140,6 @@ func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) str
 
 	dates := GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time"))
 	responseData := make([]interface{}, len(dates))
-	//yourMap := []interface{}
-	//fmt.Println("jsonStr=", jsonStr)
 	err := json.Unmarshal([]byte(jsonStr), &apiRes)
 	if err != nil {
 		fmt.Println("JsonToMapDemo err: ", err)
@@ -150,30 +148,36 @@ func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) str
 	//fmt.Println("errno=", apiRes.Errno, "errormsg=", apiRes.Errmsg, "data=", apiRes.Data)
 	apiData := apiRes.Data
 	template := apiData[0]
-	fmt.Println("type template=", reflect.TypeOf(template))
-	for i, n := range dates {
-		template.(map[string]interface{})["biz_date"] = n
-		responseData[i] = template
+
+	for i, selectDate := range dates {
+
+		maps := template.(map[string]interface{})
+		newMaps := make(map[string]interface{})
+		for key, value := range maps {
+			newMaps[key] = value
+
+		}
+		newMaps["biz_date"] = selectDate
+		//maps["biz_date"] = selectDate
+		//fmt.Println("maps", maps)
+		//fmt.Println("selectDate=", selectDate)
+		//template.(map[string]interface{})["biz_date"] = selectDate
+		//fmt.Println("template=", &template)
+
+		responseData[i] = newMaps
+		////fmt.Println(err)
+		//responseData[i].(map[string]interface{})["biz_date"] = selectDate
+		//fmt.Println(i, template)
 		//responseData = append(responseData, template)
 	}
-	//fmt.Println("type apiData=", reflect.TypeOf(apiData))
-	//fmt.Println("apiData=", apiData)
-	//fmt.Println("responseData=", responseData)
-	//apiRes.Data = yourMap
-
-	/*newResponse, err := json.Marshal(apiRes)
+	fmt.Println("responseData=", responseData)
+	apiRes.Data = responseData
+	newResponse, err := json.Marshal(apiRes)
 	if err != nil {
-		fmt.Println("生成json字符串错误")
+		fmt.Println("JSON ERR:", err)
 	}
-	fmt.Println(newResponse)*/
-	//fmt.Println("yourMap=", yourMap)
-	//var newData map[string]interface{}
-
-	//fmt.Println("biz date=", newData["biz_date"])
-
-	//fmt.Println("mapResult=", mapResult)
-	//fmt.Println("data type=", reflect.TypeOf(apiRes.Data))
-
+	jsonStr = string(newResponse)
+	fmt.Println(jsonStr)
 	return jsonStr
 }
 
