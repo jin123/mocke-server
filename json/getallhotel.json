@@ -1,0 +1,13 @@
+{
+    "errno": 0,
+    "errmsg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "hotel_id": "2000505",
+                "hotel_name": "汉庭上海东安路二店"
+            }
+        ],
+        "count": 1
+    }
+}

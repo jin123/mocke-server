@@ -1,5 +1,5 @@
 {
-  "port":4000,
+  "port":5000,
   "endpoints":[  
       {
           "method":"GET",
@@ -30,6 +30,12 @@
         "status":200,
         "path":"/product/GetRoomPriceOneHotel/index",
         "jsonPath":"./json/getRoomPriceOneHotel.json"
+    },
+    {
+        "method":"POST",
+        "status":200,
+        "path":"/product/GetMultiHotelRoomStock/index",
+        "jsonPath":"./json/getMultiHotelRoomStock.json"
     }
     
     

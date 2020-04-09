@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"github.com/go-redis/redis"
-	"github.com/jin123/mocke-server/src/logger"
 )
 
 var methodMap map[string]string
@@ -126,6 +125,7 @@ func (my *myconnector) getMethod() {
 		"productGetAllHotelindex":               "GetAllHotel",
 		"productDoubleCheckbeforeCheckRoomType": "DoubleCheckBeforeCheckRoomType",
 		"productGetRoomPriceOneHotelindex":      "GetRoomPriceOneHotel",
+		"productGetMultiHotelRoomStockindex":    "GetMultiHotelRoomStock",
 	}
 }
 func (my *myconnector) GetHotelsDetail(r *http.Request, jsonStr string) string {
@@ -133,42 +133,57 @@ func (my *myconnector) GetHotelsDetail(r *http.Request, jsonStr string) string {
 }
 
 func (my *myconnector) DoubleCheckBeforeCheckRoomType(r *http.Request, jsonStr string) string {
+	dates := GetBetweenDates(r.PostFormValue("check_in"), r.PostFormValue("check_out"))
+	err := json.Unmarshal([]byte(jsonStr), &apiRes)
+	if err != nil {
+		fmt.Println("json数据解析失败: ", err)
+	}
+	apiData := apiRes.Data
+	dataMap := apiData[0]
+	fmt.Println("dataMap=", dataMap)
+	roomDetailMap := dataMap.(map[string]interface{})["room_count_detail"]
+	eachRoomDetailMap := roomDetailMap.([]interface{})[0]
+	roomCountDetail := make([]interface{}, len(dates))
+	for i, selectDate := range dates {
+		newMaps := make(map[string]interface{})
+		for key, value := range eachRoomDetailMap.(map[string]interface{}) {
+			newMaps[key] = value
+		}
+		newMaps["biz_date"] = selectDate + " 00:00:00"
+		roomCountDetail[i] = newMaps
+	}
+	dataMap.(map[string]interface{})["room_count_detail"] = roomCountDetail
+	apiData[0] = dataMap
+	apiRes.Data = apiData
+	newResponse, err := json.Marshal(apiRes)
+	if err != nil {
+		fmt.Println("JSON ERR:", err)
+	}
+	jsonStr = string(newResponse)
+	fmt.Println(jsonStr)
+
 	return jsonStr
 }
 
-func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) string {
-
-	dates := GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time"))
+//通用的格式化时间的数据
+func (my *myconnector) FormatApiRespons(startTime string, endTime string, fileld string, jsonStr string) string {
+	dates := GetBetweenDates(startTime, endTime)
 	responseData := make([]interface{}, len(dates))
 	err := json.Unmarshal([]byte(jsonStr), &apiRes)
 	if err != nil {
-		fmt.Println("JsonToMapDemo err: ", err)
+		fmt.Println("json数据解析失败: ", err)
 	}
-
-	//fmt.Println("errno=", apiRes.Errno, "errormsg=", apiRes.Errmsg, "data=", apiRes.Data)
 	apiData := apiRes.Data
 	template := apiData[0]
-
 	for i, selectDate := range dates {
-
 		maps := template.(map[string]interface{})
 		newMaps := make(map[string]interface{})
 		for key, value := range maps {
 			newMaps[key] = value
 
 		}
-		newMaps["biz_date"] = selectDate
-		//maps["biz_date"] = selectDate
-		//fmt.Println("maps", maps)
-		//fmt.Println("selectDate=", selectDate)
-		//template.(map[string]interface{})["biz_date"] = selectDate
-		//fmt.Println("template=", &template)
-
+		newMaps[fileld] = selectDate + " 00:00:00"
 		responseData[i] = newMaps
-		////fmt.Println(err)
-		//responseData[i].(map[string]interface{})["biz_date"] = selectDate
-		//fmt.Println(i, template)
-		//responseData = append(responseData, template)
 	}
 	fmt.Println("responseData=", responseData)
 	apiRes.Data = responseData
@@ -181,6 +196,17 @@ func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) str
 	return jsonStr
 }
 
+//获取酒店房型价格
+func (my *myconnector) GetRoomPriceOneHotel(r *http.Request, jsonStr string) string {
+	return my.FormatApiRespons(r.PostFormValue("start_time"), r.PostFormValue("end_time"), "biz_date", jsonStr)
+
+}
+
+//获取酒店的房型的库存
+func (my *myconnector) GetMultiHotelRoomStock(r *http.Request, jsonStr string) string {
+	return my.FormatApiRespons(r.PostFormValue("start_time"), r.PostFormValue("end_time"), "biz_date", jsonStr)
+}
+
 //返回所有酒店id集合数据暂时不动
 func (my *myconnector) GetAllHotel(r *http.Request, jsonStr1 string) string {
 	return jsonStr1
@@ -188,6 +214,7 @@ func (my *myconnector) GetAllHotel(r *http.Request, jsonStr1 string) string {
 }
 func main() {
 
+	//fmt.Println(Mytest{})
 	//init_redis()
 	raw, err := ioutil.ReadFile("./api.json")
 	if err != nil {
@@ -208,7 +235,7 @@ func main() {
 			http.HandleFunc(ep.Path, response)
 		}
 	}
-	httpPort := flag.Int("port", 4000, "this is http port")
+	httpPort := flag.Int("port", api.Port, "this is http port")
 	flag.Parse() //这个函数一定要放在这个位子
 	fmt.Println("当前服务端口：", *httpPort)
 	err = http.ListenAndServe(":"+strconv.Itoa(*httpPort), nil)
@@ -231,16 +258,16 @@ func DynamicInvoke(object interface{}, methodName string, args ...interface{}) s
 	return v2
 }
 func response(w http.ResponseWriter, r *http.Request) {
-
-	appLogger := logger.CreateLogger()
-	fmt.Println("请求的参数")
+	//logger.CreateLogger()
+	//appLogger := logger.CreateLogger()
+	//fmt.Println("请求的参数")
 	//defer r.Body.Close()
 	//fmt.Println(r.PostFormValue("start_time"))
 	//fmt.Println(r.PostFormValue("end_time"))
 	//fmt.Println(GetBetweenDates(r.PostFormValue("start_time"), r.PostFormValue("end_time")))
 
-	r.ParseForm()
-	appLogger.AccessLog(r)
+	//r.ParseForm()
+	//appLogger.AccessLog(r)
 
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Credentials", "true")
@@ -257,7 +284,7 @@ func response(w http.ResponseWriter, r *http.Request) {
 			requestMethod := strings.Replace(r.URL.Path, "/", "", -1)
 			//fmt.Println("output222")
 			apiFunc := methodMap[requestMethod]
-			fmt.Println("调用结构体的方法")
+			//fmt.Println("调用结构体的方法")
 
 			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
 			w.WriteHeader(ep.Status)
@@ -284,8 +311,6 @@ func path2Response(path string) string {
 	defer file.Close()
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(file)
-	fmt.Println("返回值")
-	fmt.Println(buf.String())
 	return buf.String()
 }
 

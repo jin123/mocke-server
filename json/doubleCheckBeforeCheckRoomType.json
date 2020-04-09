@@ -1,0 +1,38 @@
+{
+        "errno": 0,
+        "errmsg": "SUCCESS",
+        "data": [
+            {
+                "room_type": "DRA",
+                "remain_reserve_room_count": 0,
+                "remain_share_room_count": 0,
+                "remain_booking_room_count": 6,
+                "room_count_detail": [
+                    {
+                        "room_type": "DRA",
+                        "biz_date": "2020-04-09 00:00:00",
+                        "remain_reserve_room_count": 0,
+                        "remain_share_room_count": 0,
+                        "remain_booking_room_count": 6,
+                        "price": 273,
+                        "market_price": 310,
+                        "price_check": "UkpaZMKMkqTGeUH2la+7QYQ2M4p+jmb29UxwLavJOT0gDBqllEu9C00L59LACWvt6c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu44cHCkVjXTW0SAr7R32GcF2l334JW1fQmKSCayZ0osL6Q==",
+                        "tax_price": 282.15,
+                        "tax_price_check": "PlnriSq2dE6PsQOtWp8jkccHSXzq7KjWOtgRrVjzpo1+9Q0AzFLICATA4mZalcYT6c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu46SuuB4P+ARzw+uHcqjmyMyyAtpnnZfbmF7RdPq9HhpSA=="
+                    },
+                    {
+                        "room_type": "DRA",
+                        "biz_date": "2020-04-10 00:00:00",
+                        "remain_reserve_room_count": 0,
+                        "remain_share_room_count": 0,
+                        "remain_booking_room_count": 6,
+                        "price": 273,
+                        "market_price": 310,
+                        "price_check": "UkpaZMKMkqTGeUH2la+7QYQ2M4p+jmb29UxwLavJOT0gDBqllEu9C00L59LACWvt6c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu44cHCkVjXTW0SAr7R32GcF2l334JW1fQmKSCayZ0osL6Q==",
+                        "tax_price": 282.15,
+                        "tax_price_check": "PlnriSq2dE6PsQOtWp8jkccHSXzq7KjWOtgRrVjzpo1+9Q0AzFLICATA4mZalcYT6c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu46SuuB4P+ARzw+uHcqjmyMyyAtpnnZfbmF7RdPq9HhpSA=="
+                    }
+                ]
+            }
+        ]
+    }

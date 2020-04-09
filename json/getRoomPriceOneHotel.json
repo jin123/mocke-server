@@ -1,0 +1,15 @@
+{
+        "errno": 0,
+        "errmsg": "SUCCESS",
+        "data": [
+            {
+                "room_type": "DRA",
+                "biz_date": "2020-04-01 00:00:00",
+                "price": 273,
+                "market_price": 310,
+                "price_check": "LmUixoNHWHQky9bHApX3qRHaUucuBsRMUdLVkMjSbeKqHzNFdOeO723Hw7TBszj06c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu46W0tX+gC1xclbmVoIb3FqA2DTDfoOTDt+iCjBuxGWfuQ==",
+                "tax_price": 282.15,
+                "tax_price_check": "p5G6DfdXNM1vbcPKXAi9iQ+aJfljU+KHzmTOqosbJi7TGZOTBGrhr68QIyE8zIb96c5ixfKKYk5qDyegz6R3ak3YTFebGKk5if57IFoXu46SuuB4P+ARzw+uHcqjmyMye66TAt59TMbbvDapYNRzfA=="
+            }
+        ]
+    }

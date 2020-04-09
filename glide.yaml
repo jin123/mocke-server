@@ -1,0 +1,11 @@
+package: github.com/jin123/mocke-server
+import:
+- package: github.com/go-redis/redis
+  version: v8.0.0-alpha.1
+testImport:
+- package: github.com/spf13/cast
+  version: v1.3.1
+- package: github.com/stretchr/testify
+  version: v1.5.1
+  subpackages:
+  - assert

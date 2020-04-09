@@ -1,0 +1,676 @@
+{
+        "errno": 0,
+        "errmsg": "SUCCESS",
+        "data": [
+            {
+                "hotel_no": "2000505",
+                "brand_code": 2,
+                "brand_name": "汉庭",
+                "hotel_name": "汉庭上海东安路二店",
+                "hotel_name_en": "",
+                "province_no": "31",
+                "province_name": "上海",
+                "city_no": "3101",
+                "city_name": "上海市",
+                "city_area": "上海",
+                "hotel_address": "徐汇区东安路221号",
+                "hotel_address_en": "",
+                "hotel_address_tip": "地铁4、7号线东安路站4号口出，向北（右）行2分钟",
+                "telephone": "021-54121121",
+                "h_fax": "54121766",
+                "zip_code": "200050",
+                "room_num": 145,
+                "hotel_word_introduce": "星程酒店（九江国际会展中心店）是华住酒店集团旗下的中端连锁酒店品牌，位于九江开发区九瑞大道与泰山路交叉口（九江国际汽车城旁）。从福银高速到九江出口驾车10分钟即到酒店，距火车站仅10分钟左右车程；九江二桥仅需5分钟车程。          酒店毗邻九江市最大的美食一条街（柴桑美食街），步行10分钟即到；各类购物、娱乐、餐饮、休闲场所环绕四周。酒店周边生态环境良好，坐拥八里湖、抗洪广场等景观。　　星程酒店（九江国际会展中心店）拥有各类型客房、餐厅、会议室、棋牌室、免费的停车场等。房间内配套设施齐全、WIFI全面覆盖。           不论商务还是观光，星程酒店(九江国际会展中心店）都是您的理想的选择。",
+                "lng": "121.453239",
+                "lat": "31.193532",
+                "opening_date": "2011-12-31 00:00:00",
+                "trial_opening_date": "2011-12-26 00:00:00",
+                "operate_scope": "内宾",
+                "is_opening": true,
+                "hotel_classification": "",
+                "contact_position": "店长",
+                "contact_name": "廖莉萍",
+                "mobile": "021-54121121",
+                "email": "lpliao@htinns.com",
+                "c_fax": "54121766",
+                "scale_of_taxpayer": "2",
+                "support_settlement_method": "0,1,2,3",
+                "hotel_room_type_list": [
+                    {
+                        "room_type_code": "ASO",
+                        "room_type_name": "特价房A",
+                        "room_num": 1,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "DR",
+                        "room_type_name": "大床房",
+                        "room_num": 18,
+                        "summary": "房间均配置有线电视，1张1.5米大床，位置不同，房型构造略有差异",
+                        "hotel_area": 15,
+                        "floor_place": "1-7",
+                        "bed_type": "大床",
+                        "bed_width": "1.5",
+                        "is_adsl": "宽带上网",
+                        "is_adsl_wifi": "客房wifi",
+                        "is_has_window": "有",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "该楼层为无烟楼",
+                        "max_check_in_peo_num": 2
+                    },
+                    {
+                        "room_type_code": "DRA",
+                        "room_type_name": "大床房A",
+                        "room_num": 5,
+                        "summary": "房间均配置有线电视，特殊房型，位于酒店副楼2楼，无电梯，入住时随机安排1张床或2张床",
+                        "hotel_area": 15,
+                        "floor_place": "2",
+                        "bed_type": "大床/双床",
+                        "bed_width": "1.8/1.2+1.2",
+                        "is_adsl": "宽带上网",
+                        "is_adsl_wifi": "客房wifi",
+                        "is_has_window": "有",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 2
+                    },
+                    {
+                        "room_type_code": "EHR",
+                        "room_type_name": "优雅特大床房",
+                        "room_num": 4,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "FA",
+                        "room_type_name": "公寓A",
+                        "room_num": 1,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "FB",
+                        "room_type_name": "公寓B",
+                        "room_num": 1,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "FC",
+                        "room_type_name": "公寓C",
+                        "room_num": 2,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "KGB",
+                        "room_type_name": "高级房-大床",
+                        "room_num": 1,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "SO",
+                        "room_type_name": "特价房",
+                        "room_num": 1,
+                        "summary": "",
+                        "hotel_area": 0,
+                        "floor_place": "",
+                        "bed_type": "",
+                        "bed_width": "",
+                        "is_adsl": "",
+                        "is_adsl_wifi": "",
+                        "is_has_window": "",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "",
+                        "max_check_in_peo_num": 0
+                    },
+                    {
+                        "room_type_code": "SQR",
+                        "room_type_name": "高级大床房",
+                        "room_num": 47,
+                        "summary": "房间均配置有线电视，1张1.8米大床，位置不同，房型构造略有差异",
+                        "hotel_area": 18,
+                        "floor_place": "1-7",
+                        "bed_type": "大床",
+                        "bed_width": "1.8",
+                        "is_adsl": "宽带上网",
+                        "is_adsl_wifi": "客房wifi",
+                        "is_has_window": "有",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "该楼层为无烟楼",
+                        "max_check_in_peo_num": 2
+                    },
+                    {
+                        "room_type_code": "STR",
+                        "room_type_name": "家庭房",
+                        "room_num": 11,
+                        "summary": "房间均配置有线电视，2张1.2+1.5米床",
+                        "hotel_area": 20,
+                        "floor_place": "2-7",
+                        "bed_type": "双床",
+                        "bed_width": "1.2+1.5",
+                        "is_adsl": "宽带上网",
+                        "is_adsl_wifi": "客房wifi(部分)",
+                        "is_has_window": "有",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "该楼层为无烟楼",
+                        "max_check_in_peo_num": 3
+                    },
+                    {
+                        "room_type_code": "TR",
+                        "room_type_name": "双床房",
+                        "room_num": 47,
+                        "summary": "双床房均配置有线电视，2张1.2米单人床",
+                        "hotel_area": 20,
+                        "floor_place": "1-7",
+                        "bed_type": "双床",
+                        "bed_width": "1.2+1.2",
+                        "is_adsl": "宽带上网",
+                        "is_adsl_wifi": "客房wifi",
+                        "is_has_window": "有",
+                        "is_can_add_bed": "不可加床",
+                        "has_smoke_free": "该楼层为无烟楼",
+                        "max_check_in_peo_num": 2
+                    }
+                ],
+                "hotel_service_list": [
+                    {
+                        "child_class_name": "前台保险箱",
+                        "child_class_code": 1,
+                        "child_class_name_desc": "贵重物品需要前台寄存"
+                    },
+                    {
+                        "child_class_name": "电吹风",
+                        "child_class_code": 2,
+                        "child_class_name_desc": "所有房间均安装电吹风!"
+                    },
+                    {
+                        "child_class_name": "宽带上网接口",
+                        "child_class_code": 4,
+                        "child_class_name_desc": "每个房间有两个网线接口"
+                    },
+                    {
+                        "child_class_name": "大堂wifi覆盖",
+                        "child_class_code": 6,
+                        "child_class_name_desc": "大厅有Wifi覆盖"
+                    },
+                    {
+                        "child_class_name": "客衣送洗服务",
+                        "child_class_code": 7,
+                        "child_class_name_desc": "由前台电话叫洗衣服"
+                    },
+                    {
+                        "child_class_name": "餐厅",
+                        "child_class_code": 8,
+                        "child_class_name_desc": "40个座位"
+                    },
+                    {
+                        "child_class_name": "客房Wifi覆盖",
+                        "child_class_code": 9,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "POS机",
+                        "child_class_code": 10,
+                        "child_class_name_desc": "银联，VISA，Mastercard.等等"
+                    },
+                    {
+                        "child_class_name": "电视",
+                        "child_class_code": 12,
+                        "child_class_name_desc": "每个房间配一台电视"
+                    },
+                    {
+                        "child_class_name": "大厅上网",
+                        "child_class_code": 13,
+                        "child_class_name_desc": "大厅免费提供两台瘦客机凭房卡上网,可供客人正常上网接受邮件!"
+                    },
+                    {
+                        "child_class_name": "复印",
+                        "child_class_code": 17,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "免费咖啡饮料",
+                        "child_class_code": 19,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "叫醒服务",
+                        "child_class_code": 24,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "行李寄存",
+                        "child_class_code": 25,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "独立卫生间",
+                        "child_class_code": 27,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "24小时热水",
+                        "child_class_code": 28,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "电水壶",
+                        "child_class_code": 34,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "免费瓶装水",
+                        "child_class_code": 35,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "拖鞋",
+                        "child_class_code": 36,
+                        "child_class_name_desc": ""
+                    },
+                    {
+                        "child_class_name": "免费茶包",
+                        "child_class_code": 38,
+                        "child_class_name_desc": ""
+                    }
+                ],
+                "hotel_photo_list": [
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 0,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://devm.huazhu.com/tool/upload/MDM/1410/5b5d5600-6ca3-4b46-b46d-9a07a744de5a/2018-11-15-23-01-24-227.png"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 0,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://devm.huazhu.com/tool/upload/MDM/1410/e4c0244f-be63-49ab-816b-1a3cc35960f0/2018-11-16-14-23-20-932.jpg"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 0,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://devm.huazhu.com/tool/upload/MDM/1410/e72a60a8-4668-4b1f-b515-29fcc145036c/2018-11-16-14-16-45-946.jpg"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 0,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/q/c4ewdp.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 17,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/n/02cfxo.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 17,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/x/igzbax.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 17,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/z/r4mwuc.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 22,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/i/6mvqy2.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 22,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/j/j7q5qu.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "",
+                        "child_class_code": 22,
+                        "room_name": "",
+                        "room_desc": "",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/r/wakeym.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "DR",
+                        "child_class_code": 0,
+                        "room_name": "大床房",
+                        "room_desc": "1.5",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/1/1aul27.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "DR",
+                        "child_class_code": 0,
+                        "room_name": "大床房",
+                        "room_desc": "1.5",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/l/allwxg.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "DRA",
+                        "child_class_code": 0,
+                        "room_name": "大床房A",
+                        "room_desc": "NULL",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/4/e6jdzg.jpg"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "DRA",
+                        "child_class_code": 0,
+                        "room_name": "大床房A",
+                        "room_desc": "NULL",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/7/bfwgjn.jpg"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "DRA",
+                        "child_class_code": 0,
+                        "room_name": "大床房A",
+                        "room_desc": "NULL",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/8/amqy8m.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "SQR",
+                        "child_class_code": 0,
+                        "room_name": "高级大床房",
+                        "room_desc": "1.8",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/0/v3iwm5.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "SQR",
+                        "child_class_code": 0,
+                        "room_name": "高级大床房",
+                        "room_desc": "1.8",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/8/pb4klr.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "SQR",
+                        "child_class_code": 0,
+                        "room_name": "高级大床房",
+                        "room_desc": "1.8",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/e/l5ajza.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "STR",
+                        "child_class_code": 0,
+                        "room_name": "家庭房",
+                        "room_desc": "1.2+1.5",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/c/fufv1z.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "STR",
+                        "child_class_code": 0,
+                        "room_name": "家庭房",
+                        "room_desc": "1.2+1.5",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/m/zqakz8.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "STR",
+                        "child_class_code": 0,
+                        "room_name": "家庭房",
+                        "room_desc": "1.2+1.5",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/r/rp4atr.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "TR",
+                        "child_class_code": 0,
+                        "room_name": "双床房",
+                        "room_desc": "1.2+1.2",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/1/07l7kx.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "TR",
+                        "child_class_code": 0,
+                        "room_name": "双床房",
+                        "room_desc": "1.2+1.2",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/b/ru0prh.JPG"
+                        ]
+                    },
+                    {
+                        "hotel_no": null,
+                        "room_type_code": "TR",
+                        "child_class_code": 0,
+                        "room_name": "双床房",
+                        "room_desc": "1.2+1.2",
+                        "photo_url": [
+                            "http://ws-p.hantinghotels.com/f/p/nlclfe.JPG"
+                        ]
+                    }
+                ],
+                "hotel_traffic_list": [
+                    {
+                        "starting": "火车站",
+                        "is_bus": false,
+                        "is_metro": true,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从上海火车站乘地铁4号线至东安路下4号口出，向北（右）步行约2分钟即到；Test"
+                    },
+                    {
+                        "starting": "火车南站",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从火车南站乘1号线至体育馆换4线至东安路下4号口出，向北（右）步行2分钟\n"
+                    },
+                    {
+                        "starting": "虹桥高铁",
+                        "is_bus": false,
+                        "is_metro": true,
+                        "is_drive": false,
+                        "is_taxi": false,
+                        "line_desc": "1.从虹桥高铁乘2号线至静安寺下换7线至东安路下4号口出，向北（右）走2分钟"
+                    },
+                    {
+                        "starting": "虹桥机场",
+                        "is_bus": false,
+                        "is_metro": true,
+                        "is_drive": false,
+                        "is_taxi": false,
+                        "line_desc": "1.从虹桥机场2号楼坐2号线至静安寺下换7线至东安路4号口出，向北走2分钟"
+                    },
+                    {
+                        "starting": "浦东国际机场",
+                        "is_bus": false,
+                        "is_metro": true,
+                        "is_drive": false,
+                        "is_taxi": false,
+                        "line_desc": "1.从浦东机场坐2号线至静安寺换7线至东安路下4号口出，向北（向右）走2分钟"
+                    },
+                    {
+                        "starting": "长途客运总站",
+                        "is_bus": false,
+                        "is_metro": true,
+                        "is_drive": false,
+                        "is_taxi": false,
+                        "line_desc": "1.从长途客运总站乘4号线至东安路下4号口出，向北（向右）走2分钟即到"
+                    },
+                    {
+                        "starting": "火车站",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从上海火车站直接打车到东安路二店40元左右"
+                    },
+                    {
+                        "starting": "火车南站",
+                        "is_bus": true,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从上海火车南站直接打车到东安路二店20元左右"
+                    },
+                    {
+                        "starting": "虹桥高铁",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从上海虹桥高铁站直接打车到东安路二店70元左右"
+                    },
+                    {
+                        "starting": "虹桥机场",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从上海虹桥机场2号航站楼打车直接到东安路二店70元左右"
+                    },
+                    {
+                        "starting": "浦东国际机场",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "2.从浦东国际机场打车直接到东安路二店180元左右"
+                    },
+                    {
+                        "starting": "长途客运总站",
+                        "is_bus": false,
+                        "is_metro": false,
+                        "is_drive": false,
+                        "is_taxi": true,
+                        "line_desc": "1.从长途客运总站打车直接到东安路二路店35元左右"
+                    }
+                ]
+            }
+        ]
+    }

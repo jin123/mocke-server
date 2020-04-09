@@ -1,0 +1,15 @@
+{
+        "errno":0,
+        "errmsg":"SUCCESS",
+        "data":[
+            {
+                "hotel_id":"2000505",
+                "room_type":"DRA",
+                "biz_date":"2020-01-04 00:00:00",
+                "modify_date":"0001-01-01 00:00:00",
+                "remain_reserve_room_count":6,
+                "remain_share_room_count":6,
+                "remain_booking_room_count":6
+            }
+        ]
+}
