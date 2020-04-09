@@ -1,0 +1,31 @@
+package vendor
+
+import (
+	"fmt"
+
+	"github.com/go-redis/redis"
+)
+
+func CreateRedisConnect() {
+
+	client := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "",
+		DB:       0,
+	})
+
+	fmt.Println(client)
+	defer client.Close()
+	return client
+	pong, err := client.Ping().Result()
+	if err != nil {
+		fmt.Printf("ping error[%s]\n", err.Error())
+		err_handler(err)
+	}
+
+	/*value, err := client.Get("test").Result()
+	if err != nil {
+		fmt.Printf("try get key[foo] error[%s]\n", err.Error())
+		// err_handler(err)
+	}*/
+}
