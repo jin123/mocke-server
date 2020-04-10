@@ -3,6 +3,8 @@ package commonfunc
 import (
 	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 	"reflect"
 	"time"
 )
@@ -75,4 +77,42 @@ func MapToJson(maps interface{}) string {
 	//fmt.Println(string(jsonStr))
 	jsons := string(jsonStr)
 	return jsons
+}
+func GetCurrentPath() string {
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return dir
+}
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
+func FormatMap(field string, maps interface{}) {
+	fmt.Println("maps=", maps.([]interface{}))
+
+	//newMap = make(map[string]interface{})
+
+}
+
+//结构体转字典
+func StructToMap(obj []interface{}) map[string]interface{} {
+	obj1 := reflect.TypeOf(obj)
+	obj2 := reflect.ValueOf(obj)
+
+	var data = make(map[string]interface{})
+	for i := 0; i < obj1.NumField(); i++ {
+		data[obj1.Field(i).Name] = obj2.Field(i).Interface()
+	}
+	return data
+
+}
+
+func StructToJson(obj interface{}) string {
+	fmt.Println("obj=", obj)
+
+	return ""
 }

@@ -101,18 +101,17 @@ var api API
 
 //生成一个htt服务
 func CreateHttpConnect(port int) {
-
-	raw, err := ioutil.ReadFile("./api.json")
+	dir := commonfunc.GetCurrentPath()
+	raw, err := ioutil.ReadFile(dir + "/json/api.json")
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}
+	//apiMap := make(map[string]interface{}, 0)
 	json.Unmarshal(raw, &api)
-	fmt.Println("api=", api)
 	if err != nil {
 		log.Fatal(" ", err)
 	}
-	//fmt.Println(api.Endpoints)
 	for _, ep := range api.Endpoints {
 		log.Print(ep)
 		if len(ep.Folder) > 0 {
@@ -121,13 +120,10 @@ func CreateHttpConnect(port int) {
 			http.HandleFunc(ep.Path, response)
 		}
 	}
-
 	err = http.ListenAndServe(":"+strconv.Itoa(port), nil)
-
 	if err != nil {
 		log.Fatal(" ", err)
 	}
-
 }
 
 func response(w http.ResponseWriter, r *http.Request) {
@@ -135,18 +131,44 @@ func response(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Credentials", "true")
 	w.Header().Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-	fmt.Println("PATH=", r.URL.Path)
-	fmt.Println("method=", r.Method)
+	requestPath := r.URL.Path
+	//allPath := api.Endpoints
+	/*if urlPath, ok := allPath[requestPath]; ok {
+		if urlPath["Method"] == r.Method {
+			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
+			w.WriteHeader(urlPath.Status)
+			myc := apiServer.CreateInstance() //以后改
+			myc.SetMethod()
+			requestMethod := strings.Replace(requestPath, "/", "", -1)
+			allMethod := myc.MethodMap
+			s := path2Response(urlPath.JsonPath)
+			if apiFunc, ok := allMethod[requestMethod]; ok {
+				c := commonfunc.DynamicInvoke(myc, apiFunc, r, s)
+				b := []byte(c)
+				w.Write(b)
+			} else {
+				fmt.Println("currect path is no method")
+				b := []byte(s)
+				w.Write(b)
+			}
+		}
 
+	}
+	fmt.Println(" currect path error !!!!!")
+	ret := make(map[string]interface{})
+	ret["errno"] = 500
+	ret["errmsg"] = "error"
+	jsonStr := commonfunc.MapToJson(ret)
+	b := []byte(jsonStr)
+	w.Write(b)
+	*/
 	for _, ep := range api.Endpoints {
-		if r.URL.Path == ep.Path && r.Method == ep.Method {
-			fmt.Println("method:", r.Method)
-			fmt.Println("path:", r.URL.Path)
+		if requestPath == ep.Path && r.Method == ep.Method {
 			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
 			w.WriteHeader(ep.Status)
 			myc := apiServer.CreateInstance() //以后改
 			myc.SetMethod()
-			requestMethod := strings.Replace(r.URL.Path, "/", "", -1)
+			requestMethod := strings.Replace(requestPath, "/", "", -1)
 			allMethod := myc.MethodMap
 			s := path2Response(ep.JsonPath)
 			//apiFunc := allMethod[requestMethod]
@@ -157,7 +179,7 @@ func response(w http.ResponseWriter, r *http.Request) {
 			} else {
 				b := []byte(s)
 				w.Write(b)
-				fmt.Println("no method")
+				fmt.Println("currect path is no method")
 			}
 
 		}
