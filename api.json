@@ -28,6 +28,12 @@
     {
         "method":"POST",
         "status":200,
+        "path":"/product/DoubleCheck/beforeCreateOrder",
+        "jsonPath":"./json/doubleCheckBeforeCreateOrder.json"
+    },
+    {
+        "method":"POST",
+        "status":200,
         "path":"/product/GetRoomPriceOneHotel/index",
         "jsonPath":"./json/getRoomPriceOneHotel.json"
     },
@@ -37,7 +43,7 @@
         "path":"/product/GetMultiHotelRoomStock/index",
         "jsonPath":"./json/getMultiHotelRoomStock.json"
     }
-    
+   
     
       
   ]

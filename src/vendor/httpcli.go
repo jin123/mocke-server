@@ -108,7 +108,7 @@ func CreateHttpConnect(port int) {
 		os.Exit(1)
 	}
 	json.Unmarshal(raw, &api)
-	fmt.Println(api)
+	fmt.Println("api=", api)
 	if err != nil {
 		log.Fatal(" ", err)
 	}
@@ -135,23 +135,31 @@ func response(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Credentials", "true")
 	w.Header().Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	fmt.Println("PATH=", r.URL.Path)
+	fmt.Println("method=", r.Method)
 
 	for _, ep := range api.Endpoints {
 		if r.URL.Path == ep.Path && r.Method == ep.Method {
 			fmt.Println("method:", r.Method)
 			fmt.Println("path:", r.URL.Path)
+			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
+			w.WriteHeader(ep.Status)
 			myc := apiServer.CreateInstance() //以后改
 			myc.SetMethod()
 			requestMethod := strings.Replace(r.URL.Path, "/", "", -1)
 			allMethod := myc.MethodMap
-			apiFunc := allMethod[requestMethod]
-			w.Header().Set(HeaderContentType, MIMETextPlainCharsetUTF8)
-			w.WriteHeader(ep.Status)
 			s := path2Response(ep.JsonPath)
-			apiData := commonfunc.DynamicInvoke(myc, apiFunc, r, s)
-			b := []byte(apiData)
+			//apiFunc := allMethod[requestMethod]
+			if apiFunc, ok := allMethod[requestMethod]; ok {
+				c := commonfunc.DynamicInvoke(myc, apiFunc, r, s)
+				b := []byte(c)
+				w.Write(b)
+			} else {
+				b := []byte(s)
+				w.Write(b)
+				fmt.Println("no method")
+			}
 
-			w.Write(b)
 		}
 		continue
 	}

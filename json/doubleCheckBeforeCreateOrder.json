@@ -1,0 +1,19 @@
+{
+        "errno": 0,
+        "errmsg": "SUCCESS",
+        "data": {
+            "remain_reserve_room_count": 0,
+            "remain_share_room_count": 0,
+            "remain_booking_room_count": 6,
+            "room_price": [
+                {
+                    "biz_date": "2020-04-10 00:00:00",
+                    "price": 273,
+                    "market_price": 310,
+                    "price_check": "1yheOuGjwVPdnErCvmgua4DfDbeCXHp4+j2jje/PlmDwA8ho6QT/KEPu40sV7Z0z6c5ixfKKYk5qDyegz6R3anJkKq2mge4/vkxmcQT/N2WCgPBrJlKNcfkVgR4mGHmwhiD9iFmDKPBsYjWyr1HkYg==",
+                    "tax_price": 282.15,
+                    "tax_price_check": "tEusMMlv8VbzjSiziqevyhh1D0tfz1YJU9QQVNuo065Hz3YJ2A45TJaZq/gQ3Gxn6c5ixfKKYk5qDyegz6R3anJkKq2mge4/vkxmcQT/N2VhVEVBZ/VfNsl3VRNsyX5aTTEDLj1hvOOtXLJs7yAyaA=="
+                }
+            ]
+        }
+    }

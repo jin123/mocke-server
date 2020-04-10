@@ -1,6 +1,8 @@
 package commonfunc
 
 import (
+	"encoding/json"
+	"fmt"
 	"reflect"
 	"time"
 )
@@ -51,4 +53,26 @@ func GetBetweenDates(sdate, edate string) []string {
 		}
 	}
 	return d
+}
+
+func JsonToMap(jsonStr string) interface{} {
+	var mapResult map[string]interface{}
+	err := json.Unmarshal([]byte(jsonStr), &mapResult)
+	if err != nil {
+		fmt.Println("json to map err: ", err)
+		return ""
+	}
+	return mapResult
+}
+
+func MapToJson(maps interface{}) string {
+
+	jsonStr, err := json.Marshal(maps)
+
+	if err != nil {
+		fmt.Println("MapToJsonDemo err: ", err)
+	}
+	//fmt.Println(string(jsonStr))
+	jsons := string(jsonStr)
+	return jsons
 }
